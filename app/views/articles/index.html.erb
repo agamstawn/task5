@@ -1,0 +1,49 @@
+ 
+<div class="row">
+  <h2>Import Articles</h2>
+  <%= form_tag import_articles_path, multipart: true do %>
+    <%= file_field_tag :file, class:"center"%><br>
+    <%= submit_tag "Import", class:"btn btn-success" %>
+  <% end %>
+</div>
+<br>
+<hr>
+<div class="row">
+  <p>
+    Download:
+  <%= link_to "CSV", articles_path(format: "csv") %> |
+  <%= link_to "Excel", articles_path(format: "xls") %>
+  </p>
+</div>
+<br>
+<hr>
+<div class="row">
+  <div class="page_links text-center">
+    <%= js_will_paginate @articles, renderer: BootstrapPagination::Rails %>
+  </div>
+</div>
+<br>
+<hr>
+<div class="row">
+  <div class="text-right">
+    <%= form_tag articles_path, :method => 'get', :remote=> true do %>
+      <%= text_field_tag :search, params[:search]%>
+      <%= submit_tag "Search by Title" %>
+    <% end %>
+  </div>
+</div>
+<br>
+<hr>
+<div class="row">
+  <div class="text-center">
+    <button type="button" class="btn btn-primary btn-lg" id="btnadd" data-target="#mnarticle">
+      Add Article
+      </button>
+  </div>
+</div>
+<div class="container text-center">
+  <div class="row" id="container_articles">
+    <%= render @articles %>
+  </div>
+</div>
+<%= render 'modal_form'%>

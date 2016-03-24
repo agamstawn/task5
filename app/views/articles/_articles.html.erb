@@ -1,0 +1,37 @@
+<% @articles.each do |article| %>
+  <div class="col-md-4 blog-main box block" id="article_<%= article.id %>">
+    <div class="panel panel-info ">
+      <div class="panel panel-heading">
+        <h3 class="panel-title"><%= article.title %></h3>
+      </div>
+      <div class="panel-body">
+        <p><%= article.content %></p>
+        <div style="color: #3BB2D6;"><%= time_ago_in_words(article.created_at) %></div>
+        <br>
+        <hr>
+        <div class="panel panel-heading">
+          <h3>Comments</h3>
+          <% article.comments.each do |comment| %>
+            <%= comment.content %>
+            <br/>
+          <% end %>
+        </div>
+        <br>
+        <div class="btn-group", role="group", aria-label="...">
+          <button type="button" class="btn btn-warning" id="btnedit" data-target="#muparticle_<%= article.id %>">
+            Edit  
+        </button>
+          <%= link_to article, remote: true, method: :delete,  data: { confirm: 'Are you sure?' }, class: 'delete_article ' do  %>
+            <button class="btn btn-danger">Delete</button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<!-- Modal -->
+
+<br>
+<%= javascript_include_tag 'bootstrap' %>
+
+<%= javascript_include_tag 'tes' %>
