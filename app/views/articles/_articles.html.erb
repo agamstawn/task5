@@ -10,16 +10,19 @@
         <br>
         <hr>
         <div class="panel panel-heading">
+          <td><%= link_to "Add Comment", article_path(article.id), class: "btn btn-info" %></td>
+          <br/>
           <h3>Comments</h3>
           <% article.comments.each do |comment| %>
+            <td>~~~~~~</td>
             <%= comment.content %>
+            <td>~~~~~~</td>
             <br/>
           <% end %>
         </div>
         <br>
         <div class="btn-group", role="group", aria-label="...">
-          <td><%= link_to 'edit', edit_article_path(article.id), class: "btn btn-default" %></td>
-          <td><%= link_to "Show", article_path(article.id), class: "btn btn-default" %></td>
+          <td><%= link_to 'edit', edit_article_path(article.id), class: "btn btn-warning" %></td>
           <td><%= link_to "Delete", article_path(article.id), method: "DELETE", remote: true, class: "btn btn-danger" %></td>
         </div>
       </div>

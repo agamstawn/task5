@@ -14,8 +14,6 @@ Hello <%= current_user.username %>
     <%= submit_tag "Import", class:"btn btn-success" %>
   <% end %>
 </div>
-<br>
-<hr>
 <div class="row">
   <div class="page_links text-center">
     <%= js_will_paginate @articles, renderer: BootstrapPagination::Rails %>
