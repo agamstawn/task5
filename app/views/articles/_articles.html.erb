@@ -1,7 +1,7 @@
 <% @articles.each do |article| %>
   <div class="col-md-4 blog-main box block" id="article_<%= article.id %>">
     <div class="panel panel-info ">
-      <div class="panel panel-heading">
+      <div class="panel panel-heading ">
         <h3 class="panel-title"><%= article.title %></h3>
       </div>
       <div class="panel-body">
@@ -12,6 +12,7 @@
         <div class="panel panel-heading">
           <td><%= link_to "Add Comment", article_path(article.id), class: "btn btn-info" %></td>
           <br/>
+           <div class="bg-success">
           <h3>Comments</h3>
           <% article.comments.each do |comment| %>
             <td>~~~~~~</td>
@@ -19,6 +20,7 @@
             <td>~~~~~~</td>
             <br/>
           <% end %>
+          </div>
         </div>
         <br>
         <div class="btn-group", role="group", aria-label="...">

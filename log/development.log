@@ -18744,3 +18744,635 @@ Started GET "/assets/bootstraps/bootstrap-theme.min.css.map" for 127.0.0.1 at 20
 
 
 Started GET "/assets/bootstraps/bootstrap.min.css.map" for 127.0.0.1 at 2016-03-28 15:21:45 +0700
+
+
+Started GET "/articles" for 127.0.0.1 at 2016-03-28 15:37:09 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (57.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `articles`[0m
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  `articles`.* FROM `articles` LIMIT 10 OFFSET 0
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 58[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 59
+  Rendered articles/_article.html.erb (549.8ms)
+  Rendered articles/_form.html.erb (50.9ms)
+  Rendered articles/_modal_add.html.erb (93.9ms)
+  Rendered articles/index.html.erb within layouts/application (775.4ms)
+Completed 200 OK in 1109ms (Views: 915.1ms | ActiveRecord: 119.9ms)
+
+
+Started GET "/articles/55" for 127.0.0.1 at 2016-03-28 15:37:16 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"55"}
+  [1m[36mArticle Load (129.2ms)[0m  [1mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 55 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered articles/_form_comment.html.erb (33.2ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55  ORDER BY id desc
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  Rendered articles/_comments.html.erb (30.7ms)
+  Rendered articles/show.html.erb within layouts/application (92.5ms)
+Completed 200 OK in 367ms (Views: 178.1ms | ActiveRecord: 129.9ms)
+
+
+Started GET "/articles/55" for 127.0.0.1 at 2016-03-28 15:38:46 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"55"}
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 55 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered articles/_form_comment.html.erb (8.8ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55  ORDER BY id desc
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  Rendered articles/_comments.html.erb (4.1ms)
+  Rendered articles/show.html.erb within layouts/application (21.7ms)
+Completed 200 OK in 131ms (Views: 123.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/articles/55" for 127.0.0.1 at 2016-03-28 15:39:22 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"55"}
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 55 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered articles/_form_comment.html.erb (3.3ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55  ORDER BY id desc
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  Rendered articles/_comments.html.erb (3.6ms)
+  Rendered articles/show.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 68ms (Views: 65.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/articles/55" for 127.0.0.1 at 2016-03-28 15:40:12 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"55"}
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 55 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered articles/_form_comment.html.erb (7.2ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55  ORDER BY id desc
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  Rendered articles/_comments.html.erb (6.0ms)
+  Rendered articles/show.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 56ms (Views: 51.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/articles/55" for 127.0.0.1 at 2016-03-28 15:40:46 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"55"}
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 55 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered articles/_form_comment.html.erb (4.8ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55  ORDER BY id desc
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  Rendered articles/_comments.html.erb (5.5ms)
+  Rendered articles/show.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 75ms (Views: 68.0ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2016-03-28 15:40:58 +0700
+Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "comment"=>{"article_id"=>"55", "user_id"=>"3", "content"=>"jam 15.40wib"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (77.9ms)[0m  INSERT INTO `comments` (`article_id`, `user_id`, `content`, `created_at`, `updated_at`, `status`) VALUES (55, 3, 'jam 15.40wib', '2016-03-28 08:40:58', '2016-03-28 08:40:58', 'not active')
+  [1m[36m (74.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 55 LIMIT 1
+  [1m[36mComment Load (39.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55  ORDER BY id desc[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  Rendered articles/_comments.html.erb (46.1ms)
+  Rendered comments/create.js.erb (48.9ms)
+Completed 200 OK in 244ms (Views: 44.5ms | ActiveRecord: 192.4ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2016-03-28 15:41:42 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `articles`
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  `articles`.* FROM `articles` LIMIT 10 OFFSET 0[0m
+  [1m[35mComment Load (1.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 58
+  [1m[36mComment Load (26.7ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 59[0m
+  Rendered articles/_article.html.erb (66.7ms)
+  Rendered articles/_form.html.erb (3.2ms)
+  Rendered articles/_modal_add.html.erb (7.0ms)
+  Rendered articles/index.html.erb within layouts/application (85.2ms)
+Completed 200 OK in 143ms (Views: 110.7ms | ActiveRecord: 28.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-28 15:41:45 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `articles`[0m
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  `articles`.* FROM `articles` LIMIT 10 OFFSET 0
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55
+  [1m[36mComment Load (0.9ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 58[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 59
+  Rendered articles/_article.html.erb (20.6ms)
+  Rendered articles/_form.html.erb (2.0ms)
+  Rendered articles/_modal_add.html.erb (3.6ms)
+  Rendered articles/index.html.erb within layouts/application (31.9ms)
+Completed 200 OK in 52ms (Views: 48.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-28 15:50:20 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (79.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `articles`
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  `articles`.* FROM `articles` LIMIT 10 OFFSET 0[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1
+  [1m[36mComment Load (0.8ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 58
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 59[0m
+  Rendered articles/_article.html.erb (121.9ms)
+  Rendered articles/_form.html.erb (3.6ms)
+  Rendered articles/_modal_add.html.erb (18.6ms)
+  Rendered articles/index.html.erb within layouts/application (240.3ms)
+Completed 200 OK in 577ms (Views: 495.5ms | ActiveRecord: 80.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-28 15:51:08 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `articles`[0m
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  `articles`.* FROM `articles` LIMIT 10 OFFSET 0
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 58[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 59
+  Rendered articles/_article.html.erb (13.1ms)
+  Rendered articles/_form.html.erb (4.3ms)
+  Rendered articles/_modal_add.html.erb (6.3ms)
+  Rendered articles/index.html.erb within layouts/application (29.6ms)
+Completed 200 OK in 58ms (Views: 54.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-28 15:51:12 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `articles`
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  `articles`.* FROM `articles` LIMIT 10 OFFSET 0[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 58
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 59[0m
+  Rendered articles/_article.html.erb (13.6ms)
+  Rendered articles/_form.html.erb (2.1ms)
+  Rendered articles/_modal_add.html.erb (3.7ms)
+  Rendered articles/index.html.erb within layouts/application (27.0ms)
+Completed 200 OK in 53ms (Views: 49.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-28 15:51:27 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `articles`[0m
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  `articles`.* FROM `articles` LIMIT 10 OFFSET 0
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 58[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 59
+  Rendered articles/_article.html.erb (13.8ms)
+  Rendered articles/_form.html.erb (2.3ms)
+  Rendered articles/_modal_add.html.erb (5.4ms)
+  Rendered articles/index.html.erb within layouts/application (27.3ms)
+Completed 200 OK in 59ms (Views: 54.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-28 15:52:32 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `articles`
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  `articles`.* FROM `articles` LIMIT 10 OFFSET 0[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 58
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 59[0m
+  Rendered articles/_article.html.erb (26.9ms)
+  Rendered articles/_form.html.erb (2.7ms)
+  Rendered articles/_modal_add.html.erb (4.6ms)
+  Rendered articles/index.html.erb within layouts/application (41.9ms)
+Completed 200 OK in 73ms (Views: 69.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-28 15:52:36 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `articles`[0m
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  `articles`.* FROM `articles` LIMIT 10 OFFSET 0
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 58[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 59
+  Rendered articles/_article.html.erb (17.4ms)
+  Rendered articles/_form.html.erb (2.3ms)
+  Rendered articles/_modal_add.html.erb (4.0ms)
+  Rendered articles/index.html.erb within layouts/application (32.3ms)
+Completed 200 OK in 59ms (Views: 54.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-28 15:52:59 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `articles`
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  `articles`.* FROM `articles` LIMIT 10 OFFSET 0[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 58
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 59[0m
+  Rendered articles/_article.html.erb (15.8ms)
+  Rendered articles/_form.html.erb (4.5ms)
+  Rendered articles/_modal_add.html.erb (6.4ms)
+  Rendered articles/index.html.erb within layouts/application (33.8ms)
+Completed 200 OK in 62ms (Views: 58.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-28 15:53:27 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `articles`[0m
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  `articles`.* FROM `articles` LIMIT 10 OFFSET 0
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 58[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 59
+  Rendered articles/_article.html.erb (20.2ms)
+  Rendered articles/_form.html.erb (3.0ms)
+  Rendered articles/_modal_add.html.erb (5.8ms)
+  Rendered articles/index.html.erb within layouts/application (34.3ms)
+Completed 200 OK in 67ms (Views: 62.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/articles?utf8=%E2%9C%93&search=bandung&commit=Search+by+Title" for 127.0.0.1 at 2016-03-28 16:05:56 +0700
+Processing by ArticlesController#index as JS
+  Parameters: {"utf8"=>"✓", "search"=>"bandung", "commit"=>"Search by Title"}
+  [1m[36mArticle Load (615.7ms)[0m  [1mSELECT  `articles`.* FROM `articles` WHERE (title LIKE'%bandung%' or content LIKE'%bandung%') LIMIT 10 OFFSET 0[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55[0m
+  Rendered articles/_articles.html.erb (814.8ms)
+  Rendered articles/index.js.erb (816.3ms)
+Completed 200 OK in 1963ms (Views: 272.8ms | ActiveRecord: 1681.8ms)
+
+
+Started GET "/articles?utf8=%E2%9C%93&search=bandung&commit=Search+by+Title" for 127.0.0.1 at 2016-03-28 16:06:00 +0700
+Processing by ArticlesController#index as JS
+  Parameters: {"utf8"=>"✓", "search"=>"bandung", "commit"=>"Search by Title"}
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  `articles`.* FROM `articles` WHERE (title LIKE'%bandung%' or content LIKE'%bandung%') LIMIT 10 OFFSET 0
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55
+  Rendered articles/_articles.html.erb (10.1ms)
+  Rendered articles/index.js.erb (11.6ms)
+Completed 200 OK in 16ms (Views: 13.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1&_=1459155207633" for 127.0.0.1 at 2016-03-28 16:06:00 +0700
+
+
+Started GET "/assets/tes.self-9f64f47097132c73b62ab7d9c8b2681f0a32fd266dfac456f8f6bb7e1490b0d3.js?body=1&_=1459155207634" for 127.0.0.1 at 2016-03-28 16:06:00 +0700
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1&_=1459155207635" for 127.0.0.1 at 2016-03-28 16:06:00 +0700
+
+
+Started GET "/assets/tes.self-9f64f47097132c73b62ab7d9c8b2681f0a32fd266dfac456f8f6bb7e1490b0d3.js?body=1&_=1459155207636" for 127.0.0.1 at 2016-03-28 16:06:00 +0700
+
+
+Started GET "/articles?utf8=%E2%9C%93&search=bandung&commit=Search+by+Title" for 127.0.0.1 at 2016-03-28 16:06:43 +0700
+Processing by ArticlesController#index as JS
+  Parameters: {"utf8"=>"✓", "search"=>"bandung", "commit"=>"Search by Title"}
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  `articles`.* FROM `articles` WHERE (title LIKE'%bandung%' or content LIKE'%bandung%') LIMIT 10 OFFSET 0[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55[0m
+  Rendered articles/_articles.html.erb (39.7ms)
+  Rendered articles/index.js.erb (40.9ms)
+Completed 200 OK in 80ms (Views: 76.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1&_=1459155207637" for 127.0.0.1 at 2016-03-28 16:06:43 +0700
+
+
+Started GET "/assets/tes.self-9f64f47097132c73b62ab7d9c8b2681f0a32fd266dfac456f8f6bb7e1490b0d3.js?body=1&_=1459155207638" for 127.0.0.1 at 2016-03-28 16:06:43 +0700
+
+
+Started GET "/articles?utf8=%E2%9C%93&search=&commit=Search+by+Title" for 127.0.0.1 at 2016-03-28 16:06:49 +0700
+Processing by ArticlesController#index as JS
+  Parameters: {"utf8"=>"✓", "search"=>"", "commit"=>"Search by Title"}
+  [1m[35mArticle Load (0.3ms)[0m  SELECT  `articles`.* FROM `articles` WHERE (title LIKE'%%' or content LIKE'%%') LIMIT 10 OFFSET 0
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  [1m[35mComment Load (0.6ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 58[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 59
+  Rendered articles/_articles.html.erb (15.4ms)
+  Rendered articles/index.js.erb (16.9ms)
+Completed 200 OK in 20ms (Views: 17.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1&_=1459155207639" for 127.0.0.1 at 2016-03-28 16:06:49 +0700
+
+
+Started GET "/assets/tes.self-9f64f47097132c73b62ab7d9c8b2681f0a32fd266dfac456f8f6bb7e1490b0d3.js?body=1&_=1459155207640" for 127.0.0.1 at 2016-03-28 16:06:49 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-28 16:21:01 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `articles`
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  `articles`.* FROM `articles` LIMIT 10 OFFSET 0[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 58
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 59[0m
+  Rendered articles/_article.html.erb (35.1ms)
+  Rendered articles/_form.html.erb (2.6ms)
+  Rendered articles/_modal_add.html.erb (17.8ms)
+  Rendered articles/index.html.erb within layouts/application (139.9ms)
+Completed 200 OK in 346ms (Views: 320.9ms | ActiveRecord: 23.6ms)
+
+
+Started GET "/articles/1/edit" for 127.0.0.1 at 2016-03-28 16:21:05 +0700
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 1 LIMIT 1
+  Rendered articles/edit.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 50ms (Views: 45.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2016-03-28 16:21:09 +0700
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `articles`
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  `articles`.* FROM `articles` LIMIT 10 OFFSET 0[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 58
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 59[0m
+  Rendered articles/_article.html.erb (13.7ms)
+  Rendered articles/_form.html.erb (2.3ms)
+  Rendered articles/_modal_add.html.erb (17.5ms)
+  Rendered articles/index.html.erb within layouts/application (62.1ms)
+Completed 200 OK in 114ms (Views: 111.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2016-03-28 16:21:14 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered articles/_form_comment.html.erb (5.5ms)
+  [1m[36mComment Load (73.5ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1  ORDER BY id desc[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  Rendered articles/_comments.html.erb (77.2ms)
+  Rendered articles/show.html.erb within layouts/application (105.8ms)
+Completed 200 OK in 163ms (Views: 86.8ms | ActiveRecord: 74.1ms)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2016-03-28 16:22:22 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mArticle Load (0.4ms)[0m  SELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered articles/_form_comment.html.erb (4.6ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1  ORDER BY id desc[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  Rendered articles/_comments.html.erb (3.9ms)
+  Rendered articles/show.html.erb within layouts/application (32.3ms)
+Completed 200 OK in 118ms (Views: 113.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/articles/1.xlsx" for 127.0.0.1 at 2016-03-28 16:22:28 +0700
+Processing by ArticlesController#show as XLSX
+  Parameters: {"id"=>"1"}
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  Rendered articles/show.xlsx.erb (1.7ms)
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2016-03-28 16:23:18 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mArticle Load (0.6ms)[0m  SELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered articles/_form_comment.html.erb (2.8ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1  ORDER BY id desc[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  Rendered articles/_comments.html.erb (2.5ms)
+  Rendered articles/show.html.erb within layouts/application (30.7ms)
+Completed 200 OK in 129ms (Views: 123.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/articles/1.xlsx" for 127.0.0.1 at 2016-03-28 16:23:21 +0700
+Processing by ArticlesController#show as XLSX
+  Parameters: {"id"=>"1"}
+  [1m[35mArticle Load (0.4ms)[0m  SELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  Rendered articles/show.xlsx.erb (2.8ms)
+Completed 200 OK in 8ms (Views: 5.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2016-03-28 16:25:05 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mArticle Load (0.3ms)[0m  SELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered articles/_form_comment.html.erb (2.8ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1  ORDER BY id desc[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  Rendered articles/_comments.html.erb (2.8ms)
+  Rendered articles/show.html.erb within layouts/application (31.1ms)
+Completed 200 OK in 120ms (Views: 117.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/articles/1.xlsx" for 127.0.0.1 at 2016-03-28 16:25:09 +0700
+Processing by ArticlesController#show as XLSX
+  Parameters: {"id"=>"1"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  Rendered articles/show.xlsx.erb (1.8ms)
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2016-03-28 16:25:33 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mArticle Load (0.3ms)[0m  SELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered articles/_form_comment.html.erb (4.3ms)
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1  ORDER BY id desc[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  Rendered articles/_comments.html.erb (4.9ms)
+  Rendered articles/show.html.erb within layouts/application (33.3ms)
+Completed 200 OK in 118ms (Views: 113.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/articles/1.xlsx" for 127.0.0.1 at 2016-03-28 16:25:36 +0700
+Processing by ArticlesController#show as XLSX
+  Parameters: {"id"=>"1"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  Rendered articles/show.xlsx.erb (2.7ms)
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2016-03-28 16:26:38 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered articles/_form_comment.html.erb (5.2ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1  ORDER BY id desc[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  Rendered articles/_comments.html.erb (3.3ms)
+  Rendered articles/show.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 156ms (Views: 152.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/articles/1.xlsx" for 127.0.0.1 at 2016-03-28 16:26:40 +0700
+Processing by ArticlesController#show as XLSX
+  Parameters: {"id"=>"1"}
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  Rendered articles/show.xlsx.erb (4.8ms)
+Completed 200 OK in 11ms (Views: 7.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2016-03-28 16:38:55 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `articles`[0m
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  `articles`.* FROM `articles` LIMIT 10 OFFSET 0
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 58[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 59
+  Rendered articles/_article.html.erb (60.9ms)
+  Rendered articles/_form.html.erb (3.9ms)
+  Rendered articles/_modal_add.html.erb (18.8ms)
+  Rendered articles/index.html.erb within layouts/application (152.0ms)
+Completed 200 OK in 369ms (Views: 353.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/articles/55/edit" for 127.0.0.1 at 2016-03-28 16:40:05 +0700
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"55"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 55 LIMIT 1[0m
+  Rendered articles/edit.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 121ms (Views: 115.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2016-03-28 16:40:07 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `articles`[0m
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  `articles`.* FROM `articles` LIMIT 10 OFFSET 0
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 58[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 59
+  Rendered articles/_article.html.erb (32.6ms)
+  Rendered articles/_form.html.erb (3.7ms)
+  Rendered articles/_modal_add.html.erb (19.2ms)
+  Rendered articles/index.html.erb within layouts/application (96.6ms)
+Completed 200 OK in 147ms (Views: 144.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/articles/55" for 127.0.0.1 at 2016-03-28 16:40:13 +0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"55"}
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 55 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered articles/_form_comment.html.erb (2.5ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55  ORDER BY id desc
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  Rendered articles/_comments.html.erb (2.6ms)
+  Rendered articles/show.html.erb within layouts/application (64.2ms)
+Completed 200 OK in 110ms (Views: 107.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/articles/55.xlsx" for 127.0.0.1 at 2016-03-28 16:40:21 +0700
+Processing by ArticlesController#show as XLSX
+  Parameters: {"id"=>"55"}
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 55 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55[0m
+  Rendered articles/show.xlsx.erb (1.8ms)
+Completed 200 OK in 27ms (Views: 25.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2016-03-28 16:40:58 +0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE (id = 3 and activation_status = 'active')  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `articles`[0m
+  [1m[35mArticle Load (0.3ms)[0m  SELECT  `articles`.* FROM `articles` LIMIT 10 OFFSET 0
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  [1m[35mComment Load (0.5ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 55
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 58[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 59
+  Rendered articles/_article.html.erb (27.7ms)
+  Rendered articles/_form.html.erb (2.8ms)
+  Rendered articles/_modal_add.html.erb (18.9ms)
+  Rendered articles/index.html.erb within layouts/application (74.7ms)
+Completed 200 OK in 155ms (Views: 151.7ms | ActiveRecord: 1.9ms)
