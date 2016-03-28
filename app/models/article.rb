@@ -1,6 +1,8 @@
 class Article < ActiveRecord::Base
   WillPaginate.per_page = 10
 
+  # acts_as_xlsx :columns => [:id, :title, :content, :created_at, :'comments.size'],  :i18n => true
+
   validates :title, presence: true,
     length: { minimum: 5 }
   validates :content, presence: true,
@@ -32,8 +34,8 @@ class Article < ActiveRecord::Base
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       csv << column_names
-      all.each do |article|
-        csv << article.attributes.values_at(*column_names)
+      all.each do |comment|
+        csv << comment.attributes.values_at(*column_names)
       end
     end
   end

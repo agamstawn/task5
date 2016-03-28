@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :check_current_user, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @comments = Comment.all
   end
@@ -12,24 +14,20 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(params_article)
-
     respond_to do |format|
+      @comment = Comment.new(params_comment)
       if @comment.save
-
-        format.html { redirect_to @comment, notice: 'Post was successfully created.' }
-
+        format.js {@comments = Article.find_by_id(params[:comment][:article_id]).comments.order("id desc")}
       else
-        flash[:error] = "data not valid"
-        render 'new'
-        format.js
+        format.js {@article = Article.find_by_id(params[:comment][:article_id])}
       end
     end
-
   end
+
   def show
     @comment = Comment.find_by_id(params[:id])
   end
+
   def destroy
     @comment = Comment.find_by_id(params[:id])
     @comment.destroy
@@ -39,9 +37,10 @@ class CommentsController < ApplicationController
       format.js
     end
   end
+
   private
   def params_comment
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:article_id, :user_id, :content, :status)
   end
 
 end

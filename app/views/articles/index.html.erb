@@ -1,3 +1,11 @@
+<h4>
+<% if !current_user %>
+<%= link_to 'Log-in', new_session_path %>
+<% else %>
+Hello <%= current_user.username %>
+<%= link_to 'Log-Out', session_path(current_user.id), method: "DELETE" %>
+<% end %>
+</h4>
  
 <div class="row">
   <h2>Import Articles</h2>
@@ -5,15 +13,6 @@
     <%= file_field_tag :file, class:"center"%><br>
     <%= submit_tag "Import", class:"btn btn-success" %>
   <% end %>
-</div>
-<br>
-<hr>
-<div class="row">
-  <p>
-    Download:
-  <%= link_to "CSV", articles_path(format: "csv") %> |
-  <%= link_to "Excel", articles_path(format: "xls") %>
-  </p>
 </div>
 <br>
 <hr>
@@ -46,4 +45,4 @@
     <%= render @articles %>
   </div>
 </div>
-<%= render 'modal_form'%>
+<%= render 'modal_add'%>

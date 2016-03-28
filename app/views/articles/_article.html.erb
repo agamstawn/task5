@@ -17,23 +17,13 @@
       </div>
       <br>
       <div class="btn-group", role="group", aria-label="...">
-        <button type="button" class="btn btn-warning" id="btnedit" data-target="#muparticle_<%= article.id %>">
-          Edit  
-        </button>
-        <%= link_to article, remote: true, method: :delete,  data: { confirm: 'Are you sure?' }, class: 'delete_article ' do  %>
-          <button class="btn btn-danger">Delete</button>
-        <% end %>
+        <td><%= link_to 'Edit', edit_article_path(article.id), class: "btn btn-default" %></td>
+        <td><%= link_to "Show", article_path(article.id), class: "btn btn-default" %></td>
+        <td><%= link_to "Delete", article_path(article.id), method: "DELETE", remote: true, class: "btn btn-danger" %></td>
       </div>
     </div>
   </div>
 </div>
 <!-- Modal -->
-
 <br>
 <%= javascript_include_tag 'bootstrap' %>
-<script type="text/javascript">
-  $('#btnedit').on("click", function(){
-                $("#muparticle_<%= article.id %>").modal('show');
-  
-      });
-</script>

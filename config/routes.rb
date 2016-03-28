@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
 
+  get "sign_up" => "users#new", :as => "sign_up"
+  resources :users
 
   root :to => "articles#index"
   resources :articles do
     collection{ post :import}
   end
   resources :comments
+
+  resources :sessions
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

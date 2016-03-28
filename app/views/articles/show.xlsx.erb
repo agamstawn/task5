@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="<%= @article.title %>">
+
+  </Worksheet>
+  <Worksheet ss:Name="Comment">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Article ID</Data></Cell>
+        <Cell><Data ss:Type="String">User ID</Data></Cell>
+        <Cell><Data ss:Type="String">Content</Data></Cell>
+      </Row>
+    <% @article.comments.each do |comment| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= comment.id %></Data></Cell>  
+         <Cell><Data ss:Type="String"><%= comment.article_id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= comment.user_id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= comment.content %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
+  before_action :check_current_user, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @articles = Article.search(params[:search]).paginate(:page => params[:page], :per_page => 10).includes(:comments)
+    @articles = Article.search(params[:search]).paginate(:page => params[:page], :per_page => 10)
     @article = Article.new
     respond_to do|format|
       format.html
@@ -20,7 +21,13 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+
+    @article = Article.find(params[:id])
     @article.comments.build
+
+    # respond_to do |f|
+    #   f.js { @articles }
+    # end
 
   end
 
@@ -44,21 +51,24 @@ class ArticlesController < ApplicationController
     @article = Article.find_by_id(params[:id])
     @comments = @article.comments.order("id desc")
     @comment = Comment.new
+    respond_to do|format|
+      format.html
+      format.csv{ send_data @comments.to_csv}
+      format.xlsx
+    end
   end
 
   def update
 
     @article = Article.find_by_id(params[:id])
-    respond_to do |f|
-      if @article.update(params_article)
-        flash[:notice] = "Success Update Records"
-        redirect_to action: 'index'
-        f.js
-      else
-        flash[:error] = "data not valid"
-        render 'edit'
-        f.js
-      end
+
+    if @article.update(params_article)
+      flash[:notice] = "Success Update Records"
+      redirect_to action: 'index'
+    else
+      flash[:error] = "data not valid"
+      render 'edit'
+
     end
   end
 
@@ -74,6 +84,8 @@ class ArticlesController < ApplicationController
     Article.import(params[:file])
     redirect_to root_url, notice: "Articles imported."
   end
+
+
 
   private
   def set_article
