@@ -41,7 +41,7 @@ class Article < ActiveRecord::Base
   end
 
   def self.import(file)
-    allowed_attributes = [ "id","title","content","status","created_at","updated_at"]
+    allowed_attributes = [ "id","title","content","status","created_at","updated_at", "article_id", "user_id"]
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
     (2..spreadsheet.last_row).each do |i|

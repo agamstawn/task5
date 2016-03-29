@@ -39,6 +39,8 @@ gem 'nested_form'
 
 gem 'bcrypt-ruby', require: 'bcrypt'
 
+gem 'rubyzip'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

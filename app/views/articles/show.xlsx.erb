@@ -4,33 +4,29 @@
   xmlns:x="urn:schemas-microsoft-com:office:excel"
   xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
   xmlns:html="http://www.w3.org/TR/REC-html40">
-  <Worksheet ss:Name="<%= @article.title %>">
+  <Worksheet ss:Name="Article">
     <Table>
       <Row>
-        <Cell><Data ss:Type="String">ID</Data></Cell>
         <Cell><Data ss:Type="String">Title</Data></Cell>
         <Cell><Data ss:Type="String">Content</Data></Cell>
         <Cell><Data ss:Type="String">Status</Data></Cell>
       </Row>
       <Row>
-        <Cell><Data ss:Type="Number"><%= @article.id %></Data></Cell>
         <Cell><Data ss:Type="String"><%= @article.title %></Data></Cell>
         <Cell><Data ss:Type="String"><%= @article.content %></Data></Cell>
         <Cell><Data ss:Type="String"><%= @article.status %></Data></Cell>
       </Row>
     </Table>
   </Worksheet>
-  <Worksheet ss:Name="Comment">
+  <Worksheet ss:Name="Comments">
     <Table>
       <Row>
-        <Cell><Data ss:Type="String">ID</Data></Cell>
         <Cell><Data ss:Type="String">Article ID</Data></Cell>
         <Cell><Data ss:Type="String">User ID</Data></Cell>
         <Cell><Data ss:Type="String">Content</Data></Cell>
       </Row>
     <% @article.comments.each do |comment| %>
-      <Row>
-        <Cell><Data ss:Type="Number"><%= comment.id %></Data></Cell>  
+      <Row> 
          <Cell><Data ss:Type="String"><%= comment.article_id %></Data></Cell>
         <Cell><Data ss:Type="String"><%= comment.user_id %></Data></Cell>
         <Cell><Data ss:Type="String"><%= comment.content %></Data></Cell>

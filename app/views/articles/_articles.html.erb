@@ -10,27 +10,25 @@
         <br>
         <hr>
         <div class="panel panel-heading">
-          <td><%= link_to "Add Comment", article_path(article.id), class: "btn btn-info" %></td>
-          <br/>
-           <div class="bg-success">
-          <h3>Comments</h3>
-          <% article.comments.each do |comment| %>
-            <td>~~~~~~</td>
-            <%= comment.content %>
-            <td>~~~~~~</td>
-            <br/>
-          <% end %>
+          <td><%= link_to "Add Comment", article_path(article.id), class: "btn btn-info btn-raised" %></td>
+          <div style="background-color: #007acc">
+            <h3>Comments</h3>
+            <div style="background-color: #0099ff">
+              <% article.comments.each do |comment| %>
+                <%= comment.content %>
+                <hr>
+              <% end %>
+            </div>
           </div>
         </div>
         <br>
         <div class="btn-group", role="group", aria-label="...">
-          <td><%= link_to 'edit', edit_article_path(article.id), class: "btn btn-warning" %></td>
-          <td><%= link_to "Delete", article_path(article.id), method: "DELETE", remote: true, class: "btn btn-danger" %></td>
+          <td><%= link_to 'edit', edit_article_path(article.id), class: "btn btn-warning btn-raised" %></td>
+          <td><%= link_to "Delete", article_path(article.id), method: "DELETE", remote: true, class: "btn btn-danger btn-raised" %></td>
         </div>
       </div>
     </div>
   </div>
 <% end %>
-<br>
 <%= javascript_include_tag 'bootstrap' %>
 <%= javascript_include_tag 'tes' %>

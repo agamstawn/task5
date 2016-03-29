@@ -1,6 +1,8 @@
+$.material.init();
 $("#mnarticle").modal('hide');
 $(".article_title").val('');
 $(".article_content").val('');
 
 $("#container_articles").html('<%= j render "articles" %>');
 $("#article_<%= @article.id %>").hide().fadeIn(1000);
+

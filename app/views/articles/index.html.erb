@@ -7,20 +7,19 @@ Hello <%= current_user.username %>
 <% end %>
 </h4>
  
-<div class="row">
+<div class="row form-group">
   <h2>Import Articles</h2>
   <%= form_tag import_articles_path, multipart: true do %>
-    <%= file_field_tag :file, class:"center"%><br>
-    <%= submit_tag "Import", class:"btn btn-success" %>
+    <%= file_field_tag :file, class:"input-group is-empty is-fileinput is-focused"%><br>
+    <div class="input-group">
+    <input type="text" readonly="" class="form-control" placeholder="Browse...">
+      <span class="input-group-btn input-group-sm">
+       <%= submit_tag "Import", class:"btn btn-raised btn-success" %>
+      </span>
+  </div>
+    
   <% end %>
 </div>
-<div class="row">
-  <div class="page_links text-center">
-    <%= js_will_paginate @articles, renderer: BootstrapPagination::Rails %>
-  </div>
-</div>
-<br>
-<hr>
 <div class="row">
   <div class="text-right">
     <%= form_tag articles_path, :method => 'get', :remote=> true do %>
@@ -32,8 +31,15 @@ Hello <%= current_user.username %>
 <br>
 <hr>
 <div class="row">
+  <div class="page_links text-center">
+    <%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
+  </div>
+</div>
+<hr>
+<br/>
+<div class="row">
   <div class="text-center">
-    <button type="button" class="btn btn-primary btn-lg" id="btnadd" data-target="#mnarticle">
+    <button type="button" class="btn btn-primary btn-lg btn-raised" id="btnadd" data-target="#mnarticle">
       Add Article
       </button>
   </div>
@@ -44,3 +50,5 @@ Hello <%= current_user.username %>
   </div>
 </div>
 <%= render 'modal_add'%>
+
+

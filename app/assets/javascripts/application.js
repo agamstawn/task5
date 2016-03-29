@@ -12,6 +12,8 @@
 
 
 //= require jquery
+//= require material
+//= require ripples
 //= require jquery_ujs	
 
 //= require_tree .

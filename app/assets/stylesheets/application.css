@@ -12,6 +12,8 @@
  *
  *= require bootstraps/bootstrap
  *= require bootstraps/bootstrap-theme
+ *= require bootstraps/bootstrap-material-design
+ *= require bootstraps/ripples
  *= require_tree .
  *= require_self
  */

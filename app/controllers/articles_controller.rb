@@ -37,6 +37,7 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       if @article.save
         @articles= Article.paginate(:page => params[:page], :per_page => 10)
+        flash[:success] = "Add article was successed!"
         format.js { @articles }
 
       else
@@ -49,7 +50,7 @@ class ArticlesController < ApplicationController
   end
   def show
     @article = Article.find_by_id(params[:id])
-    @comments = @article.comments.order("id desc")
+    @comments = @article.comments.all
     @comment = Comment.new
     respond_to do|format|
       format.html
