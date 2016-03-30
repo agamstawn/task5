@@ -38,6 +38,11 @@ class CommentsController < ApplicationController
     end
   end
 
+  def import
+    Article.import(params[:file])
+    redirect_to root_url, notice: "Articles imported."
+  end
+  
   private
   def params_comment
     params.require(:comment).permit(:article_id, :user_id, :content, :status)

@@ -25,10 +25,6 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.comments.build
 
-    # respond_to do |f|
-    #   f.js { @articles }
-    # end
-
   end
 
   def create
@@ -55,7 +51,7 @@ class ArticlesController < ApplicationController
     respond_to do|format|
       format.html
       format.csv{ send_data @comments.to_csv}
-      format.xlsx
+      format.xls
     end
   end
 

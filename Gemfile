@@ -27,9 +27,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'axlsx', '~> 2.0', '>= 2.0.1'
 
+gem 'axlsx_rails'
+
+gem 'acts_as_xlsx'
+
 gem 'roo'
 
 gem "iconv", "~> 1.0.3"
+
+gem 'kaminari'
 
 gem 'will_paginate', '~> 3.0.6'
 

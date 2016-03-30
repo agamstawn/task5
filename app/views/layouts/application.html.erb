@@ -7,8 +7,13 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+   
     <div class="container">
       <%= yield %>
     </div>
+    <script type="text/javascript">
+    $.material.init();  
+    </script>
+    
   </body>
 </html>

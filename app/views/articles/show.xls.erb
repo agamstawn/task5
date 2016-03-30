@@ -27,7 +27,7 @@
       </Row>
     <% @article.comments.each do |comment| %>
       <Row> 
-        <Cell><Data ss:Type="String"><%= comment.article_id %></Data></Cell>
+         <Cell><Data ss:Type="String"><%= comment.article_id %></Data></Cell>
         <Cell><Data ss:Type="String"><%= comment.user_id %></Data></Cell>
         <Cell><Data ss:Type="String"><%= comment.content %></Data></Cell>
       </Row>
