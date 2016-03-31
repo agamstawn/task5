@@ -1,19 +1,38 @@
-<%= form_for @user do |f| %>
-<%= f.label :username %>
-<%= f.text_field :username %>
-<%= @user.errors[:username].first unless @user.errors[:username].blank? %>
-<br/>
-<%= f.label :email %>
-<%= f.text_field :email %>
-<%= @user.errors[:email].first unless @user.errors[:email].blank? %>
-<br/>
-<%= f.label :password %>
-<%= f.password_field :password %>
-<%= @user.errors[:password].first unless @user.errors[:password].blank? %>
-<br/>
-<%= f.label :password_confirmation %>
-<%= f.password_field :password_confirmation %>
-<%= @user.errors[:password_confirmation].first unless @user.errors[:password_confirmation].blank? %>
-<br/>
-<%= f.submit %>
-<% end %>
+<div class="col-md-12">
+  <legend>Sign Up</legend>
+  <%= form_for @user do |f| %>
+    <div class="form-group">
+      <%= f.label :username, class:"col-md-2 control-label"%>
+      <div class="col-md-10">
+        <%= f.text_field :username, class:"form-control",placeholder:"Username"%>
+        <%= @user.errors[:username].first unless @user.errors[:username].blank? %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :email,class:"col-md-2 control-label"%>
+      <div class="col-md-10">
+        <%= f.text_field :email, class:"form-control",placeholder:"Email"%>
+        <%= @user.errors[:email].first unless @user.errors[:email].blank? %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :password ,class:"col-md-2 control-label"%>
+      <div class="col-md-10">
+        <%= f.password_field :password, class:"form-control",placeholder:"Password" %>
+        <%= @user.errors[:password].first unless @user.errors[:password].blank? %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation ,class:"col-md-2 control-label" %>
+        <div class="col-md-10">
+          <%= f.password_field :password_confirmation, class:"form-control",placeholder:"Password Confirmation" %>
+          <%= @user.errors[:password_confirmation].first unless @user.errors[:password_confirmation].blank? %>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <div class="col-md-10 col-md-offset-2">
+          <%= f.submit :Submit, class:"btn btn-default"%>
+        </div>
+      </div>
+    <% end %>
+  </div>

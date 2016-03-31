@@ -4,8 +4,7 @@
     <%= f.hidden_field :user_id, value: current_user.id %>
   <% end %>
   <br/>
-  <%= f.label :content %>
-  <%= f.text_area :content, class:"form-control" %>
-  <br/>
+  <%= f.label :comment %>
+  <%= f.text_area :content, class:"form-control text-center", placeholder:"text comment here ..." %>
   <%= f.submit :Submit, class:"btn btn-primary btn-raised"%>
 <% end %>

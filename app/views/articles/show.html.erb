@@ -1,21 +1,33 @@
-<div class="row">
+<div class="row text-center">
   <p>
-    Download:
-  <%= link_to "CSV", article_path(format: "csv") %> |
-  <%= link_to "Excel", article_path(format: "xls") %>
+    Download Article as :
+    <%= link_to "Excel", article_path(format: "xls") %>
   </p>
 </div>
 <br>
 <hr>
-<h3><%= @article.title %></h3>
-<p><%= @article.content %></p>
-<p><%= link_to 'back to index', articles_path %></p>
-<div id="form-comment">
-  <%= render 'form_comment' %>
+<div class="row text-center">
+  <div class="panel panel-success">
+    <div class="panel panel-heading">
+      <h3><%= @article.title %></h3>
+    </div>
+    <div class="panel-body">
+      <p><%= @article.content %></p>
+      <p><%= link_to 'back to index', articles_path %></p>
+      <div id="form-comment">
+        <b><%= render 'form_comment' %></b>
+      </div>
+      <br>
+      <div class="panel panel-info">
+        <div class="panel panel-heading">
+          <h4>Here the comments</h4>
+        </div>
+        <div class="panel-body">
+          <div id="list-comments">
+            <%= render 'comments' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<h4>Here the comments</h4>
-<div id="list-comments">
-  <%= render 'comments' %>
-</div>
-
-

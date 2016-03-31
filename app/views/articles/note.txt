@@ -29,3 +29,38 @@ devise == otentikasi
 <% end %>
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>
+
+========31 March2016========
++++++++index.html++++++++++++
+<h4>
+  <% if !current_user %>
+    <%= link_to 'Log-in', new_session_path %>
+  <% else %>
+    Hello <%= current_user.username %>
+    <%= link_to 'Log-Out', session_path(current_user.id), method: "DELETE" %>
+  <% end %>
+</h4>
+++++++++++++++++++++++++++++++++++
+<div class="row">
+  <div class="text-right">
+    <%= form_tag articles_path, :method => 'get', :remote=> true do %>
+      <%= text_field_tag :search, params[:search]%>
+      <%= submit_tag "Search by Title" %>
+    <% end %>
+  </div>
+</div>
++++++++++++++++++++++++++++++++++++
+<div class="row form-group">
+  <h3>Import Article</h3>
+  <%= form_tag import_articles_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <input type="text" readonly="" class="form-control" placeholder="Browse...">
+    <%= submit_tag "Import", class:"btn btn-raised btn-success"  %>
+  <% end %>
+</div>
+++++++++++++++++++++++++++++++++++++
+<%= link_to "CSV", article_path(format: "csv") %> |
+
+TRANSACTION
+CHART
+SIDEKIQ & REDIS

@@ -1,46 +1,45 @@
 <form class="form-horizontal">
-<%= form_for(@article) do |f| %>
-  <% if @article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
-      <ul>
-        <% @article.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <%= form_for(@article) do |f| %>
+    <% if @article.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+        <ul>
+          <% @article.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="">
+      <fieldset class="in-focus">
+        <div class="form-group">
+          <%= f.label :title, class:"control-label" %><br/>
+          <%= f.text_field :title, class: "form-control article_title" %>
+          <%= @article.errors[:title].first unless @article.errors[:title].blank? %>
+        </div>
+        <div class="form-group">
+          <%= f.label :content, class:"control-label" %><br/>
+          <%= f.text_area :content, cols: 20, rows: 10, class:"form-control article_content" %>
+          <%= @article.errors[:content].first unless @article.errors[:content].blank? %>
+        </div>
+        <div class="form-group">
+          <%= f.label :status, class:"col-md-2 control-label" %>
+          <div class="col-md-10">
+            <div class="radio radio-primary">
+              <label style="padding-left: 20px">
+                <%= f.radio_button :status, "active" %>
+                Active
+              </label>
+            </div>
+            <div class="radio radio-primary">
+              <label>
+                <%= f.radio_button :status, "off", :checked=> true %>
+                Off
+              </label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
     </div>
   <% end %>
-  <div class="">
-    <fieldset class="in-focus">
-      <div class="form-group">
-        <%= f.label :title %><br/>
-        <%= f.text_field :title, class: "form-control article_title" %>
-        <%= @article.errors[:title].first unless @article.errors[:title].blank? %>
-      </div>
-      <div class="form-group">
-        <%= f.label :content %><br/>
-        <%= f.text_area :content, cols: 20, rows: 10, class:"form-control article_content" %>
-        <%= @article.errors[:content].first unless @article.errors[:content].blank? %>
-      </div>
-      <div class="form-group">
-      <%= f.label :status %>
-      </div>
-      <div class="col-md-12 form-group" style="padding-bottom: 15px">
-        <div class="col-md-3">
-          <%= label :article_status, 'active' %>
-        </div>
-        <div class="col-md-3">
-          <%= f.radio_button :status, "active"%>
-        </div>
-        <div class="col-md-3">
-          <%= label :article_status, 'off' %>
-        </div>
-        <div class="col-md-3">
-          <%= f.radio_button :status, "off", :checked => true , class: "radio-primary"%>
-        </div>
-      </div>
-    </fieldset>
-  </div>
-  <br/>
-<% end %>
 </form>

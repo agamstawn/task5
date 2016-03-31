@@ -1,32 +1,33 @@
 <div class="col-md-4 blog-main box block" id="article_<%= article.id %>">
-  <div class="panel panel-info ">
+  <div class="panel panel-success ">
     <div class="panel panel-heading">
       <h3 class="panel-title"><%= article.title %></h3>
     </div>
     <div class="panel-body">
       <p><%= article.content %></p>
       <div style="color: #3BB2D6;"><%= time_ago_in_words(article.created_at) %></div>
-      <br>
       <hr>
-      <div class="panel panel-heading">
-        <td><%= link_to "Add Comment", article_path(article.id), class: "btn btn-info btn-raised" %></td>
-        <div style="background-color: #007acc">
-          <h3>Comments</h3>
-          <div style="background-color: #0099ff">
-            <% article.comments.each do |comment| %>
-              <%= comment.content %>
-              <hr>
-            <% end %>
-          </div>
+      <br>
+      <div class="panel panel-info">
+        <div class="panel panel-heading">
+          Comment
+        </div>
+        <div class="panel-body">
+          <% article.comments.each do |comment| %>
+            <%= comment.content %>
+            <hr>
+          <% end %>
+           <td><%= link_to "Add Comment", article_path(article.id), class: "btn btn-info btn-raised" %></td>
         </div>
       </div>
-      <br>
-      <div class="btn-group", role="group", aria-label="...">
-        <td><%= link_to 'Edit', edit_article_path(article.id), class: "btn btn-warning btn-raised" %></td>
-        <td><%= link_to "Delete", article_path(article.id), method: "DELETE", remote: true, class: "btn btn-danger btn-raised" %></td>
-      </div>
+    </div>
+    <br>
+    <div class="btn-group", role="group", aria-label="...">
+      <td><%= link_to 'Edit', edit_article_path(article.id), class: "btn btn-warning btn-raised" %></td>
+      <td><%= link_to "Delete", article_path(article.id), method: "DELETE", remote: true, class: "btn btn-danger btn-raised" %></td>
     </div>
   </div>
 </div>
+
 <%= javascript_include_tag 'bootstrap' %>
 <%= javascript_include_tag 'tes' %>

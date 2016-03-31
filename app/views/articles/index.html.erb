@@ -1,50 +1,35 @@
-<h4>
-<% if !current_user %>
-<%= link_to 'Log-in', new_session_path %>
-<% else %>
-Hello <%= current_user.username %>
-<%= link_to 'Log-Out', session_path(current_user.id), method: "DELETE" %>
-<% end %>
-</h4>
- 
-<div class="row form-group">
-  <h2>Import Articles</h2>
-  <%= form_tag import_articles_path, multipart: true do %>
-    <%= file_field_tag :file, class:"input-group is-empty is-fileinput is-focused"%><br>
-    <div class="input-group">
-    <input type="text" readonly="" class="form-control" placeholder="Browse...">
-      <span class="input-group-btn input-group-sm">
-       <%= submit_tag "Import", class:"btn btn-raised btn-success" %>
-      </span>
-  </div>
-  <% end %>
-</div>
-
-<%= form_tag import_articles_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
-<div class="row">
-  <div class="text-right">
-    <%= form_tag articles_path, :method => 'get', :remote=> true do %>
-      <%= text_field_tag :search, params[:search]%>
-      <%= submit_tag "Search by Title" %>
+<div class="col-md-12 center">
+  <div class="col-md-4 form-group", style="padding-top: 12px">
+    <%= form_tag import_articles_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <input type="text" readonly="" class="form-control" placeholder="Browse Import Article file here...">
+      <%= submit_tag "Import", class:"btn btn-raised btn-success"  %>
     <% end %>
   </div>
-</div>
-<br>
-<hr>
-<div class="row">
-  <div class="page_links text-center">
-    <%= paginate @articles %>
+  <div class="col-md-4 form-group",style="padding-top: 15px">
+    <div class="page_links text-center">
+      <%= paginate @articles %>
+    </div>
+  </div>
+  <br>
+  <div class="col-md-4 form-group",style="padding-top: 15px">
+    <div class="input-group">
+      <%= form_tag articles_path, :method => 'get', :remote=> true do %>
+        <%= text_field_tag :search, params[:search], class:"form-control col-md-8", placeholder:"Search Article here"%>
+        <span class="input-group-button">
+          <%= submit_tag "Search" , class:"btn btn-raised btn-info"%>
+        </span>
+        
+      <% end %>
+    </div>
   </div>
 </div>
 <hr>
 <br/>
 <div class="row">
-  <div class="text-center">
-    <button type="button" class="btn btn-primary btn-lg btn-raised" id="btnadd" data-target="#mnarticle">
-      Add Article
+  <div class="">
+    <button type="button" class="btn btn-primary btn-lg btn-raised" id="btnadd" data-target="#mnarticle" style="border-radius: 100px">
+      <strong>+ </strong>
       </button>
   </div>
 </div>
@@ -54,5 +39,3 @@ Hello <%= current_user.username %>
   </div>
 </div>
 <%= render 'modal_add'%>
-
-

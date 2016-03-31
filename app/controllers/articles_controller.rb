@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
       format.csv{ send_data @articles.to_csv}
       format.xls
       format.js {
-        @articles
+        @Articles
         @article
       }
     end

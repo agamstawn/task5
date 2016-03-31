@@ -16,6 +16,9 @@ li{
 input {
   height: auto !important;
 }
+a{
+  color:aqua;
+}
 .container{
   padding: 10px;
 }
