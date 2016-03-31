@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
     respond_to do|format|
       format.html
       format.csv{ send_data @articles.to_csv}
-      format.xlsx#{ send_data @articles.to_csv(col_sep:"\t")}
+      format.xls
       format.js {
         @articles
         @article

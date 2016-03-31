@@ -15,17 +15,4 @@ class Comment < ActiveRecord::Base
     self.status = "not active"
   end
 
-  def self.import(file)
-    cheader = spreadsheet.sheet(1).row(1)
-
-    (2..spreadsheet.last_row).each do |i|
-      row = Hash[[cheader, spreadsheet.row(i)].transpose]
-      debugger
-      comment = new
-      comment.attributes = row
-
-      comment.save
-    end
-    
-  end
 end

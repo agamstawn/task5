@@ -42,13 +42,22 @@ class Article < ActiveRecord::Base
 
 
     spreadsheet = open_spreadsheet(file)
-    header = spreadsheet.row(1)
-    (2..spreadsheet.last_row).each do |i|
-      row = Hash[[header, spreadsheet.row(i)].transpose]
-      article = new
-      article.attributes = row
-      article.save
-    end
+  	page_article = spreadsheet.sheet('Article')
+  	  	
+  	(2..page_article.last_row).each do |no_row| 
+  		@article = Article.create(
+  			title: page_article.row(no_row)[0], 
+  			content: page_article.row(no_row)[1], 
+  			status: page_article.row(no_row)[2]) 
+  	end
+
+  	page_comment = spreadsheet.sheet('Comment')
+  	(2..page_comment.last_row).each do |no_row| 
+  		@comments = Comment.create(
+  			article_id: @article.id, 
+  			user_id: page_comment.row(no_row)[1], 
+  			content: page_comment.row(no_row)[2])			 
+  	end
 
   end
 
