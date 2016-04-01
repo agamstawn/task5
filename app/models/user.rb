@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessor :password
   before_save :add_salt_and_hash
   before_create :add_activation_token
+  # before_validation :ensure_login_has_a_value
 
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
@@ -21,4 +22,12 @@ class User < ActiveRecord::Base
     self.activation_token = SecureRandom.urlsafe_base64
     self.activation_status = "not activated"
   end
+
+  # protected
+  # def ensure_login_has_a_value
+  #   if login.nil?
+  #     self.login = email unless email.blank?
+  #   end
+    
+  # end
 end

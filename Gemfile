@@ -31,7 +31,7 @@ gem 'axlsx_rails'
 
 gem 'acts_as_xlsx'
 
-gem 'roo'
+gem 'roo', '~> 2.3', '>= 2.3.2'
 
 gem "iconv", "~> 1.0.3"
 
@@ -45,7 +45,10 @@ gem 'nested_form'
 
 gem 'bcrypt-ruby', require: 'bcrypt'
 
-gem 'rubyzip'
+gem 'rubyzip', '~> 1.2'
+
+gem 'roo-xls'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
