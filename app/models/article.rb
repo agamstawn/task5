@@ -1,5 +1,10 @@
 class Article < ActiveRecord::Base
-  WillPaginate.per_page = 10
+  include ThinkingSphinx::Scopes
+  # include PgSearch
+
+  # multisearchable :against => [:title, :content]
+
+  # WillPaginate.per_page = 10
 
   validates :title, presence: true,
     length: { minimum: 5 }
@@ -21,43 +26,47 @@ class Article < ActiveRecord::Base
     content
   end
 
-  def self.search(search)
-    if search
-      where(["title LIKE? or content LIKE?","%#{search}%","%#{search}%"])
-    else
-      all
-    end
+  def self.paginate_order(page)
+    paginate(:page => page, :per_page => 10).order("created_at desc")
   end
 
-  def self.to_csv(options = {})
-    CSV.generate(options) do |csv|
-      csv << column_names
-      all.each do |comment|
-        csv << comment.attributes.values_at(*column_names)
-      end
-    end
-  end
+  # def self.search(search)
+  #   if search
+  #     where(["title LIKE? or content LIKE?","%#{search}%","%#{search}%"])
+  #   else
+  #     all
+  #   end
+  # end
+
+  # def self.to_csv(options = {})
+  #   CSV.generate(options) do |csv|
+  #     csv << column_names
+  #     all.each do |comment|
+  #       csv << comment.attributes.values_at(*column_names)
+  #     end
+  #   end
+  # end
 
   def self.import(file)
 
 
     spreadsheet = open_spreadsheet(file)
-  	page_article = spreadsheet.sheet('Article')
-  	  	
-  	(2..page_article.last_row).each do |no_row| 
-  		@article = Article.create(
-  			title: page_article.row(no_row)[0], 
-  			content: page_article.row(no_row)[1], 
-  			status: page_article.row(no_row)[2]) 
-  	end
+    page_article = spreadsheet.sheet('Article')
 
-  	page_comment = spreadsheet.sheet('Comment')
-  	(2..page_comment.last_row).each do |no_row| 
-  		@comments = Comment.create(
-  			article_id: @article.id, 
-  			user_id: page_comment.row(no_row)[1], 
-  			content: page_comment.row(no_row)[2])			 
-  	end
+    (2..page_article.last_row).each do |no_row|
+      @article = Article.create(
+        title: page_article.row(no_row)[0],
+        content: page_article.row(no_row)[1],
+      status: page_article.row(no_row)[2])
+    end
+
+    page_comment = spreadsheet.sheet('Comment')
+    (2..page_comment.last_row).each do |no_row|
+      @comments = Comment.create(
+        article_id: @article.id,
+        user_id: page_comment.row(no_row)[1],
+      content: page_comment.row(no_row)[2])
+    end
 
   end
 
@@ -69,4 +78,13 @@ class Article < ActiveRecord::Base
     else raise "Unknown file type: #{file.original_filename}"
     end
   end
+
+  # define_index do
+  #   indexes content
+  #   indexes :title, :sortable => true
+  #   indexes comments.content, :as => :comment_content
+  #   # indexes [author.first_name, author.last_name], :as => :author_name
+    
+  #   has author_id, created_at
+  # end
 end

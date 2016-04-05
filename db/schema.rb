@@ -11,24 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160401031039) do
+ActiveRecord::Schema.define(version: 20160404080747) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.string   "content",    limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "status",     limit: 255
-    t.string   "status_two", limit: 255
+    t.string   "title"
+    t.string   "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "status"
+    t.string   "status_two"
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "article_id", limit: 4
-    t.integer  "user_id",    limit: 4
-    t.string   "content",    limit: 255
-    t.string   "status",     limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "article_id"
+    t.integer  "user_id"
+    t.string   "content"
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "invitations", force: :cascade do |t|
@@ -36,15 +39,23 @@ ActiveRecord::Schema.define(version: 20160401031039) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string   "username",          limit: 255
-    t.string   "email",             limit: 255
-    t.string   "password_hash",     limit: 255
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.string   "password_salt",     limit: 255
-    t.string   "activation_token",  limit: 255
-    t.string   "activation_status", limit: 255
+    t.string   "username"
+    t.string   "email"
+    t.string   "password_hash"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "password_salt"
+    t.string   "activation_token"
+    t.string   "activation_status"
   end
 
 end

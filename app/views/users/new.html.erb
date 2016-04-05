@@ -21,6 +21,7 @@
         <%= f.password_field :password, class:"form-control",placeholder:"Password" %>
         <%= @user.errors[:password].first unless @user.errors[:password].blank? %>
       </div>
+    </div>
       <div class="form-group">
         <%= f.label :password_confirmation ,class:"col-md-2 control-label" %>
         <div class="col-md-10">

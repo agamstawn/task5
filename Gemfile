@@ -5,6 +5,10 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.13', '< 0.5'
+gem 'pg', '~> 0.15'
+# gem 'pg_search', "~> 0.5.7"
+# gem 'sqlite3'
+gem 'thinking-sphinx', '~> 3.1.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -62,6 +66,7 @@ gem 'roo-xls'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  # gem 'pry-rails'
 end
 
 group :development do

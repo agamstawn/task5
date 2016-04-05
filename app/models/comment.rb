@@ -1,4 +1,7 @@
 class Comment < ActiveRecord::Base
+  # include PgSearch
+  # multisearchable :against => :content
+
   before_create :default_status
 
   belongs_to :article

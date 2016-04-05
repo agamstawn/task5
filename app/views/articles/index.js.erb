@@ -1,1 +1,2 @@
 $("#container_articles").html('<%= j render "articles" %>');
+$('#paginator').html('<%= j paginate(@articles, remote: true).to_s %>');

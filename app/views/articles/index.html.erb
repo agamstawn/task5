@@ -7,7 +7,7 @@
     <% end %>
   </div>
   <div class="col-md-4 form-group",style="padding-top: 15px">
-    <div class="page_links text-center">
+    <div class="page_links text-center" id="paginator">
       <%= paginate @articles, :remote => true %>
     </div>
   </div>

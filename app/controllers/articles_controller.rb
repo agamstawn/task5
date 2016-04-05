@@ -2,12 +2,11 @@ class ArticlesController < ApplicationController
   before_action :check_current_user, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @articles = Article.search(params[:search]).paginate(:page => params[:page], :per_page => 10)
+    # @articles = Article.search(params[:search]).paginate(:page => params[:page], :per_page => 10).order("created_at desc")
+   @articles = Article.search (params[:search])
     @article = Article.new
     respond_to do|format|
       format.html
-      format.csv{ send_data @articles.to_csv}
-      format.xls
       format.js {
         @Articles
         @article
@@ -32,9 +31,9 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        @articles= Article.paginate(:page => params[:page], :per_page => 10)
+        @articles= Article.paginate(:page => params[:page], :per_page => 10).order("created_at desc")
         flash[:success] = "Add article was successed!"
-        format.js { @articles }
+        format.js
 
       else
         flash[:error] = "data not valid"
