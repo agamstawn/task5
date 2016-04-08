@@ -2,8 +2,8 @@ class ArticlesController < ApplicationController
   before_action :check_current_user, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @articles = Article.search(params[:search]).paginate(:page => params[:page], :per_page => 10).order("created_at desc")
-    # @articles = Article.search (params[:search])
+    # @articles = Article.search(params[:search]).paginate(:page => params[:page], :per_page => 10).order("created_at desc")
+    @articles = Article.search(params[:search])
     @article = Article.new
     respond_to do|format|
       format.html

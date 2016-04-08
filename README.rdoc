@@ -16,5 +16,12 @@ Setup Sidekiq and Redis for this project
   	config.redis = { :url => 'redis://' + redisServer + ':6379/0' }	
 	end
 
+======================================Thinking Sphinx===============================
+* first setting follow this tutorial:
+http://freelancing-gods.com/thinking-sphinx/quickstart.html
+
+* before run application execute:
+
+rake ts:start 
 
 

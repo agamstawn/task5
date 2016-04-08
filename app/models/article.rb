@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  # include ThinkingSphinx::Scopes
+   include ThinkingSphinx::Scopes
   # include PgSearch
 
   # multisearchable :against => [:title, :content]
@@ -31,13 +31,13 @@ class Article < ActiveRecord::Base
     paginate(:page => page, :per_page => 10).order("created_at desc")
   end
 
-  def self.search(search)
-    if search
-      where(["title LIKE? or content LIKE?","%#{search}%","%#{search}%"])
-    else
-      all
-    end
-  end
+  # def self.search(search)
+  #   if search
+  #     where(["title LIKE? or content LIKE?","%#{search}%","%#{search}%"])
+  #   else
+  #     all
+  #   end
+  # end
 
   def self.import(file)
 
