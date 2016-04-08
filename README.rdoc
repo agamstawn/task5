@@ -24,4 +24,28 @@ http://freelancing-gods.com/thinking-sphinx/quickstart.html
 
 rake ts:start 
 
+=====================================Import Article=================================
+
+* before import article file, make sure the file is an .xlsx format
+
+* if you exporting article.xlsx from webapp and then want to import that file to webapp again,
+	
+  open article.xlsx on office or libre,
+  save as file with xlsx format
+
+=====================================User Account====================================
+
+you must sign_up early with your real email, cause app will sent token to activate your account
+
+or 
+
+try login with this account : username: user1, password: user1
+
+or
+
+please contact : setiawanagam@gmail.com
+
+**************************This Application still on development***********************
+	
+
 

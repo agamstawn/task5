@@ -9,9 +9,13 @@
 
 bandung_juara = Article.create(title: 'Gedung Sate', content: 'Gedung Putihnya Bandung', status: 'active')
 jogja_pintar = Article.create(title: 'Keraton', content: 'Tempat ngumpul para selir', status: 'active')
-['Pertamax bandung', 'mantap euy'].each do |bj|
-  bandung_juara.comments.create(content: bj)
-end
-['Pertamax jogja', 'cah lanang was here', 'ojolali'].each do |jp|
-  jogja_pintar.comments.create(content: jp)
-end
+jakarta_macet = Article.create(title: 'Monas', content: 'Monas Digusur', status: 'active')
+# ['Pertamax bandung', 'mantap euy'].each do |bj|
+#   bandung_juara.comments.create(content: bj)
+# end
+# ['Pertamax jogja', 'cah lanang was here', 'ojolali'].each do |jp|
+#   jogja_pintar.comments.create(content: jp)
+# end
+# ['Pertamax jkt', 'the jak rusuh', 'tawuran'].each do |jm|
+#   jakarta_macet.comments.create(content: jm)
+# end
