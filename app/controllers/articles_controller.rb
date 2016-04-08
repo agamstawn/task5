@@ -2,11 +2,12 @@ class ArticlesController < ApplicationController
   before_action :check_current_user, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    # @articles = Article.search(params[:search]).paginate(:page => params[:page], :per_page => 10).order("created_at desc")
-   @articles = Article.search (params[:search])
+    @articles = Article.search(params[:search]).paginate(:page => params[:page], :per_page => 10).order("created_at desc")
+    # @articles = Article.search (params[:search])
     @article = Article.new
     respond_to do|format|
       format.html
+      # HardWorker.perform(@article.id)
       format.js {
         @Articles
         @article
@@ -31,12 +32,17 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
+        # inline
+        # FilterObscenity.new.perform(@article.id)
+        # background
+        # FilterObscenityJob.perform_later(@article.id)
+        # native
+        # HardWorker.perform_async(@article.id)
+        HardWorker.perform_in(1.minute, @article.id)
         @articles= Article.paginate(:page => params[:page], :per_page => 10).order("created_at desc")
-        flash[:success] = "Add article was successed!"
         format.js
 
       else
-        flash[:error] = "data not valid"
         render 'new'
         format.js
       end
@@ -47,10 +53,10 @@ class ArticlesController < ApplicationController
     @article = Article.find_by_id(params[:id])
     @comments = @article.comments.all
     @comment = Comment.new
+    filename = "article.xlsx"
     respond_to do|format|
       format.html
-      format.csv{ send_data @comments.to_csv}
-      format.xls
+      format.xlsx{}
     end
   end
 
@@ -80,8 +86,6 @@ class ArticlesController < ApplicationController
     Article.import(params[:file])
     redirect_to root_url, notice: "Articles imported."
   end
-
-
 
   private
   def set_article

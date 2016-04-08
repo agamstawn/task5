@@ -65,3 +65,4 @@ TRANSACTION
 CHART
 SIDEKIQ & REDIS
 Full text search
+

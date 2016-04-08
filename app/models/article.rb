@@ -1,10 +1,11 @@
 class Article < ActiveRecord::Base
-  include ThinkingSphinx::Scopes
+  # include ThinkingSphinx::Scopes
   # include PgSearch
 
   # multisearchable :against => [:title, :content]
 
   # WillPaginate.per_page = 10
+
 
   validates :title, presence: true,
     length: { minimum: 5 }
@@ -30,22 +31,13 @@ class Article < ActiveRecord::Base
     paginate(:page => page, :per_page => 10).order("created_at desc")
   end
 
-  # def self.search(search)
-  #   if search
-  #     where(["title LIKE? or content LIKE?","%#{search}%","%#{search}%"])
-  #   else
-  #     all
-  #   end
-  # end
-
-  # def self.to_csv(options = {})
-  #   CSV.generate(options) do |csv|
-  #     csv << column_names
-  #     all.each do |comment|
-  #       csv << comment.attributes.values_at(*column_names)
-  #     end
-  #   end
-  # end
+  def self.search(search)
+    if search
+      where(["title LIKE? or content LIKE?","%#{search}%","%#{search}%"])
+    else
+      all
+    end
+  end
 
   def self.import(file)
 

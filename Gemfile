@@ -5,8 +5,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.13', '< 0.5'
-gem 'pg', '~> 0.15'
-# gem 'pg_search', "~> 0.5.7"
+gem 'pg', '~> 0.17.1'
+# ===========================================searching==========================
+gem 'pg_search'
 # gem 'sqlite3'
 gem 'thinking-sphinx', '~> 3.1.0'
 # Use SCSS for stylesheets
@@ -29,6 +30,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# ======================================export/import xls=====================
 gem 'axlsx', '~> 2.0', '>= 2.0.1'
 
 gem 'axlsx_rails'
@@ -38,21 +40,23 @@ gem 'acts_as_xlsx'
 gem 'roo', '~> 2.3', '>= 2.3.2'
 
 gem "iconv", "~> 1.0.3"
-
+# ======================================paging==================================
 gem 'kaminari'
 
 gem 'will_paginate', '~> 3.0.6'
 
 gem 'will_paginate-bootstrap'
-
+# 
 gem 'nested_form'
-
+# ======================================md5======================================
 gem 'bcrypt-ruby', require: 'bcrypt'
 
 gem 'rubyzip', '~> 1.2'
 
 gem 'roo-xls'
-
+#=======================================test sidekiq==============================
+gem 'sidekiq'
+gem 'sinatra', require: false
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -67,6 +71,10 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   # gem 'pry-rails'
+end
+
+group :production do
+  gem 'rails_12factor', '0.0.2'
 end
 
 group :development do
