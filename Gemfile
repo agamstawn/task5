@@ -49,7 +49,7 @@ gem 'will_paginate-bootstrap'
 # 
 gem 'nested_form'
 # ======================================md5======================================
-gem 'bcrypt-ruby', require: 'bcrypt'
+gem 'bcrypt'
 
 gem 'rubyzip', '~> 1.2'
 
@@ -67,7 +67,7 @@ gem 'sinatra', require: false
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-ruby "2.2.3"
+ruby "2.2.4"
 
     # gem 'rails_12factor', group: "production"
 
