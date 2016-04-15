@@ -39,9 +39,6 @@ you must sign_up early with your real email, cause app will sent token to activa
 
 or 
 
-try login with this account : username: user1, password: user1
-
-or
 
 please contact : setiawanagam@gmail.com
 
