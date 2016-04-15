@@ -9,7 +9,7 @@ gem 'pg', '~> 0.17.1'
 # ===========================================searching==========================
 gem 'pg_search'
 # gem 'sqlite3'
-gem 'thinking-sphinx', '~> 3.1.0'
+gem 'thinking-sphinx', '~> 3.1.0', group: "production"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
