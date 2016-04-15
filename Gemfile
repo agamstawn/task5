@@ -67,7 +67,7 @@ gem 'sinatra', require: false
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
- # ruby "1.9.3"
+ruby "2.2.3"
 
     # gem 'rails_12factor', group: "production"
 
